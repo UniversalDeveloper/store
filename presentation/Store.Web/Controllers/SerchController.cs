@@ -9,15 +9,15 @@ namespace Store.Web.Controllers
 {
     public class SerchController : Controller
     {
-        private readonly IBookRepository bookRepository;
-        public SerchController(IBookRepository bookRepository) 
+        private readonly BookService bookService;
+        public SerchController(BookService bookService) 
         {
-            this.bookRepository = bookRepository;
+            this.bookService = bookService;
         }
         public IActionResult Index(string query)
         {
-            var books = bookRepository.GetAllByTitleOrAuthor(query);
-            return View(books);
+            var books = bookService.GetAllByQuery(query);
+            return View("Index",books);
         }
     }
 }
