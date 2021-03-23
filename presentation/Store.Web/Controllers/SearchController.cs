@@ -7,10 +7,10 @@ using store;
 
 namespace Store.Web.Controllers
 {
-    public class SerchController : Controller
+    public class SearchController : Controller
     {
         private readonly BookService bookService;
-        public SerchController(BookService bookService) 
+        public SearchController(BookService bookService) 
         {
             this.bookService = bookService;
         }
